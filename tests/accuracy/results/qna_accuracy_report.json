@@ -1,0 +1,1100 @@
+{
+  "test_type": "qna",
+  "dataset_id": "05fac329-6761-4df8-87f4-cf5f7f540f4d",
+  "persona_id": "240a1084-93f3-468b-8f99-02ed555ee862",
+  "timestamp": "2025-11-25T10:19:19.172331",
+  "summary": {
+    "total_tests": 60,
+    "successful_tests": 60
+  },
+  "aggregate_metrics": {
+    "semantic_similarity": {
+      "mean": 0.036666666666666674
+    },
+    "performance": {
+      "avg_response_time_seconds": 2.70706205
+    }
+  },
+  "test_results": [
+    {
+      "test_case": {
+        "question": "When do you open and close?",
+        "expected_answer": "Our business hours are Monday to Friday from 9 AM to 5 PM.",
+        "category": "general",
+        "difficulty": "easy",
+        "test_type": "ai_generated"
+      },
+      "response": {
+        "generated_answer": "Error"
+      },
+      "metrics": {
+        "semantic_similarity": 0.0,
+        "response_time_seconds": 5.176001,
+        "retrieval_correct": false
+      },
+      "status": "success"
+    },
+    {
+      "test_case": {
+        "question": "What time can I visit your store?",
+        "expected_answer": "We\u2019re available from 9 AM to 5 PM, Monday through Friday.",
+        "category": "general",
+        "difficulty": "easy",
+        "test_type": "ai_generated"
+      },
+      "response": {
+        "generated_answer": "Error"
+      },
+      "metrics": {
+        "semantic_similarity": 0.0,
+        "response_time_seconds": 2.285928,
+        "retrieval_correct": false
+      },
+      "status": "success"
+    },
+    {
+      "test_case": {
+        "question": "What are your working hours?",
+        "expected_answer": "We operate Monday to Friday, from 9 AM until 5 PM.",
+        "category": "general",
+        "difficulty": "easy",
+        "test_type": "ai_generated"
+      },
+      "response": {
+        "generated_answer": "Error"
+      },
+      "metrics": {
+        "semantic_similarity": 0.0,
+        "response_time_seconds": 2.423845,
+        "retrieval_correct": false
+      },
+      "status": "success"
+    },
+    {
+      "test_case": {
+        "question": "Can you tell me your office hours?",
+        "expected_answer": "Our office is open Monday through Friday from 9 AM to 5 PM.",
+        "category": "general",
+        "difficulty": "easy",
+        "test_type": "ai_generated"
+      },
+      "response": {
+        "generated_answer": "Error"
+      },
+      "metrics": {
+        "semantic_similarity": 0.0,
+        "response_time_seconds": 2.261998,
+        "retrieval_correct": false
+      },
+      "status": "success"
+    },
+    {
+      "test_case": {
+        "question": "Are you open on weekends?",
+        "expected_answer": "No, we are only open Monday to Friday, 9 AM to 5 PM.",
+        "category": "general",
+        "difficulty": "easy",
+        "test_type": "ai_generated"
+      },
+      "response": {
+        "generated_answer": "Error"
+      },
+      "metrics": {
+        "semantic_similarity": 0.2,
+        "response_time_seconds": 2.424601,
+        "retrieval_correct": false
+      },
+      "status": "success"
+    },
+    {
+      "test_case": {
+        "question": "So, what's the deal with your hours?",
+        "expected_answer": "We're around from 9 to 5, Monday to Friday\u2014no weekends, sorry!",
+        "category": "general",
+        "difficulty": "easy",
+        "test_type": "ai_generated"
+      },
+      "response": {
+        "generated_answer": "Error"
+      },
+      "metrics": {
+        "semantic_similarity": 0.1,
+        "response_time_seconds": 2.381703,
+        "retrieval_correct": false
+      },
+      "status": "success"
+    },
+    {
+      "test_case": {
+        "question": "Hey, when can I swing by?",
+        "expected_answer": "You can drop by anytime from 9 to 5 during the weekdays!",
+        "category": "general",
+        "difficulty": "easy",
+        "test_type": "ai_generated"
+      },
+      "response": {
+        "generated_answer": "Error"
+      },
+      "metrics": {
+        "semantic_similarity": 0.0,
+        "response_time_seconds": 2.280981,
+        "retrieval_correct": false
+      },
+      "status": "success"
+    },
+    {
+      "test_case": {
+        "question": "What are the hours during which you operate?",
+        "expected_answer": "Our operating hours are Monday to Friday from 9 in the morning until 5 in the evening.",
+        "category": "general",
+        "difficulty": "medium",
+        "test_type": "ai_generated"
+      },
+      "response": {
+        "generated_answer": "Error"
+      },
+      "metrics": {
+        "semantic_similarity": 0.0,
+        "response_time_seconds": 2.126324,
+        "retrieval_correct": false
+      },
+      "status": "success"
+    },
+    {
+      "test_case": {
+        "question": "Can you tell me your working hours?",
+        "expected_answer": "We work from Monday to Friday, 9AM to 5PM.",
+        "category": "general",
+        "difficulty": "medium",
+        "test_type": "ai_generated"
+      },
+      "response": {
+        "generated_answer": "Error"
+      },
+      "metrics": {
+        "semantic_similarity": 0.0,
+        "response_time_seconds": 2.116502,
+        "retrieval_correct": false
+      },
+      "status": "success"
+    },
+    {
+      "test_case": {
+        "question": "When can I come by your office?",
+        "expected_answer": "Feel free to visit us on weekdays between 9AM and 5PM.",
+        "category": "general",
+        "difficulty": "medium",
+        "test_type": "ai_generated"
+      },
+      "response": {
+        "generated_answer": "Error"
+      },
+      "metrics": {
+        "semantic_similarity": 0.0,
+        "response_time_seconds": 2.174396,
+        "retrieval_correct": false
+      },
+      "status": "success"
+    },
+    {
+      "test_case": {
+        "question": "What time do you open and close?",
+        "expected_answer": "We open our doors at 9AM and close at 5PM, Monday through Friday.",
+        "category": "general",
+        "difficulty": "medium",
+        "test_type": "ai_generated"
+      },
+      "response": {
+        "generated_answer": "Error"
+      },
+      "metrics": {
+        "semantic_similarity": 0.0,
+        "response_time_seconds": 2.158244,
+        "retrieval_correct": false
+      },
+      "status": "success"
+    },
+    {
+      "test_case": {
+        "question": "Are you open on weekends?",
+        "expected_answer": "No, we are only available Monday to Friday from 9AM to 5PM.",
+        "category": "general",
+        "difficulty": "medium",
+        "test_type": "ai_generated"
+      },
+      "response": {
+        "generated_answer": "Error"
+      },
+      "metrics": {
+        "semantic_similarity": 0.2,
+        "response_time_seconds": 2.174978,
+        "retrieval_correct": false
+      },
+      "status": "success"
+    },
+    {
+      "test_case": {
+        "question": "So when\u2019s the best time to reach you?",
+        "expected_answer": "You can reach us on weekdays from 9 in the morning until 5 in the afternoon.",
+        "category": "general",
+        "difficulty": "medium",
+        "test_type": "ai_generated"
+      },
+      "response": {
+        "generated_answer": "Error"
+      },
+      "metrics": {
+        "semantic_similarity": 0.0,
+        "response_time_seconds": 2.344024,
+        "retrieval_correct": false
+      },
+      "status": "success"
+    },
+    {
+      "test_case": {
+        "question": "What\u2019s your schedule like during the week?",
+        "expected_answer": "Our schedule is Monday to Friday, 9AM to 5PM, so that's when we're available.",
+        "category": "general",
+        "difficulty": "medium",
+        "test_type": "ai_generated"
+      },
+      "response": {
+        "generated_answer": "Error"
+      },
+      "metrics": {
+        "semantic_similarity": 0.0,
+        "response_time_seconds": 2.123658,
+        "retrieval_correct": false
+      },
+      "status": "success"
+    },
+    {
+      "test_case": {
+        "question": "So, when can I pop by your place?",
+        "expected_answer": "You can swing by Monday to Friday between 9 in the morning and 5 in the afternoon.",
+        "category": "general",
+        "difficulty": "hard",
+        "test_type": "ai_generated"
+      },
+      "response": {
+        "generated_answer": "Error"
+      },
+      "metrics": {
+        "semantic_similarity": 0.0,
+        "response_time_seconds": 2.236997,
+        "retrieval_correct": false
+      },
+      "status": "success"
+    },
+    {
+      "test_case": {
+        "question": "What times are you guys open for business?",
+        "expected_answer": "Our business hours are Monday through Friday from 9 AM to 5 PM.",
+        "category": "general",
+        "difficulty": "hard",
+        "test_type": "ai_generated"
+      },
+      "response": {
+        "generated_answer": "Error"
+      },
+      "metrics": {
+        "semantic_similarity": 0.0,
+        "response_time_seconds": 2.179665,
+        "retrieval_correct": false
+      },
+      "status": "success"
+    },
+    {
+      "test_case": {
+        "question": "If I wanna drop in, when should I come?",
+        "expected_answer": "Feel free to come by any weekday from 9 AM to 5 PM.",
+        "category": "general",
+        "difficulty": "hard",
+        "test_type": "ai_generated"
+      },
+      "response": {
+        "generated_answer": "Error"
+      },
+      "metrics": {
+        "semantic_similarity": 0.0,
+        "response_time_seconds": 2.063416,
+        "retrieval_correct": false
+      },
+      "status": "success"
+    },
+    {
+      "test_case": {
+        "question": "When\u2019s the best time to catch you guys at the office?",
+        "expected_answer": "Best bet is to catch us Monday to Friday, 9 AM to 5 PM.",
+        "category": "general",
+        "difficulty": "hard",
+        "test_type": "ai_generated"
+      },
+      "response": {
+        "generated_answer": "Error"
+      },
+      "metrics": {
+        "semantic_similarity": 0.0,
+        "response_time_seconds": 2.549229,
+        "retrieval_correct": false
+      },
+      "status": "success"
+    },
+    {
+      "test_case": {
+        "question": "Can I get the scoop on your working hours?",
+        "expected_answer": "Yeah, we're around Monday to Friday from 9 AM till 5 PM.",
+        "category": "general",
+        "difficulty": "hard",
+        "test_type": "ai_generated"
+      },
+      "response": {
+        "generated_answer": "Error"
+      },
+      "metrics": {
+        "semantic_similarity": 0.0,
+        "response_time_seconds": 2.135957,
+        "retrieval_correct": false
+      },
+      "status": "success"
+    },
+    {
+      "test_case": {
+        "question": "What\u2019s the lowdown on when you\u2019re open?",
+        "expected_answer": "We\u2019re open during weekdays from 9 to 5, so drop by anytime!",
+        "category": "general",
+        "difficulty": "hard",
+        "test_type": "ai_generated"
+      },
+      "response": {
+        "generated_answer": "Error"
+      },
+      "metrics": {
+        "semantic_similarity": 0.0,
+        "response_time_seconds": 2.263553,
+        "retrieval_correct": false
+      },
+      "status": "success"
+    },
+    {
+      "test_case": {
+        "question": "What should I do if I forgot my password?",
+        "expected_answer": "Click on the 'Forgot Password' link on the login page.",
+        "category": "account",
+        "difficulty": "easy",
+        "test_type": "ai_generated"
+      },
+      "response": {
+        "generated_answer": "Error"
+      },
+      "metrics": {
+        "semantic_similarity": 0.0,
+        "response_time_seconds": 2.434115,
+        "retrieval_correct": false
+      },
+      "status": "success"
+    },
+    {
+      "test_case": {
+        "question": "How can I get a new password?",
+        "expected_answer": "You can reset your password by selecting 'Forgot Password' on the login screen.",
+        "category": "account",
+        "difficulty": "easy",
+        "test_type": "ai_generated"
+      },
+      "response": {
+        "generated_answer": "Error"
+      },
+      "metrics": {
+        "semantic_similarity": 0.1,
+        "response_time_seconds": 2.396206,
+        "retrieval_correct": false
+      },
+      "status": "success"
+    },
+    {
+      "test_case": {
+        "question": "I can't remember my password, how do I change it?",
+        "expected_answer": "Use the 'Forgot Password' option available on the login page.",
+        "category": "account",
+        "difficulty": "easy",
+        "test_type": "ai_generated"
+      },
+      "response": {
+        "generated_answer": "Error"
+      },
+      "metrics": {
+        "semantic_similarity": 0.2,
+        "response_time_seconds": 2.344119,
+        "retrieval_correct": false
+      },
+      "status": "success"
+    },
+    {
+      "test_case": {
+        "question": "What do I need to do to reset my password?",
+        "expected_answer": "To reset your password, select the 'Forgot Password' link during login.",
+        "category": "account",
+        "difficulty": "easy",
+        "test_type": "ai_generated"
+      },
+      "response": {
+        "generated_answer": "Error"
+      },
+      "metrics": {
+        "semantic_similarity": 0.2,
+        "response_time_seconds": 2.522246,
+        "retrieval_correct": false
+      },
+      "status": "success"
+    },
+    {
+      "test_case": {
+        "question": "If I'm locked out, how can I retrieve my password?",
+        "expected_answer": "Simply click on 'Forgot Password' when you're on the login page.",
+        "category": "account",
+        "difficulty": "easy",
+        "test_type": "ai_generated"
+      },
+      "response": {
+        "generated_answer": "Error"
+      },
+      "metrics": {
+        "semantic_similarity": 0.1,
+        "response_time_seconds": 2.142856,
+        "retrieval_correct": false
+      },
+      "status": "success"
+    },
+    {
+      "test_case": {
+        "question": "Lost my password! What's the fix?",
+        "expected_answer": "Just hit the 'Forgot Password' button on the login area.",
+        "category": "account",
+        "difficulty": "easy",
+        "test_type": "ai_generated"
+      },
+      "response": {
+        "generated_answer": "Error"
+      },
+      "metrics": {
+        "semantic_similarity": 0.0,
+        "response_time_seconds": 2.461687,
+        "retrieval_correct": false
+      },
+      "status": "success"
+    },
+    {
+      "test_case": {
+        "question": "How do I get back into my account if I can't remember my password?",
+        "expected_answer": "You can regain access by clicking the 'Forgot Password' link on the sign-in page.",
+        "category": "account",
+        "difficulty": "easy",
+        "test_type": "ai_generated"
+      },
+      "response": {
+        "generated_answer": "Error"
+      },
+      "metrics": {
+        "semantic_similarity": 0.2,
+        "response_time_seconds": 2.158131,
+        "retrieval_correct": false
+      },
+      "status": "success"
+    },
+    {
+      "test_case": {
+        "question": "What steps should I take to change my password?",
+        "expected_answer": "Go to the login screen and click on the 'Forgot Password' link.",
+        "category": "account",
+        "difficulty": "medium",
+        "test_type": "ai_generated"
+      },
+      "response": {
+        "generated_answer": "Error"
+      },
+      "metrics": {
+        "semantic_similarity": 0.1,
+        "response_time_seconds": 2.64566,
+        "retrieval_correct": false
+      },
+      "status": "success"
+    },
+    {
+      "test_case": {
+        "question": "How can I recover my password if I can't remember it?",
+        "expected_answer": "Select the 'Forgot Password' option when you attempt to log in.",
+        "category": "account",
+        "difficulty": "medium",
+        "test_type": "ai_generated"
+      },
+      "response": {
+        "generated_answer": "Error"
+      },
+      "metrics": {
+        "semantic_similarity": 0.1,
+        "response_time_seconds": 2.374497,
+        "retrieval_correct": false
+      },
+      "status": "success"
+    },
+    {
+      "test_case": {
+        "question": "I need to reset my password; what do I do?",
+        "expected_answer": "Simply click on the 'Forgot Password' button available on the login interface.",
+        "category": "account",
+        "difficulty": "medium",
+        "test_type": "ai_generated"
+      },
+      "response": {
+        "generated_answer": "Error"
+      },
+      "metrics": {
+        "semantic_similarity": 0.2,
+        "response_time_seconds": 2.53454,
+        "retrieval_correct": false
+      },
+      "status": "success"
+    },
+    {
+      "test_case": {
+        "question": "Can you tell me how to get a new password for my account?",
+        "expected_answer": "You can obtain a new password by tapping on 'Forgot Password' during the login process.",
+        "category": "account",
+        "difficulty": "medium",
+        "test_type": "ai_generated"
+      },
+      "response": {
+        "generated_answer": "Error"
+      },
+      "metrics": {
+        "semantic_similarity": 0.1,
+        "response_time_seconds": 2.577362,
+        "retrieval_correct": false
+      },
+      "status": "success"
+    },
+    {
+      "test_case": {
+        "question": "What's the procedure if I want a new password and I've forgotten the old one?",
+        "expected_answer": "Just hit the 'Forgot Password' link on the login page to initiate the reset.",
+        "category": "account",
+        "difficulty": "medium",
+        "test_type": "ai_generated"
+      },
+      "response": {
+        "generated_answer": "Error"
+      },
+      "metrics": {
+        "semantic_similarity": 0.0,
+        "response_time_seconds": 2.480427,
+        "retrieval_correct": false
+      },
+      "status": "success"
+    },
+    {
+      "test_case": {
+        "question": "I can't remember my password at all! How do I fix this?",
+        "expected_answer": "No worries! Just look for the 'Forgot Password' option on the sign-in page and follow the instructions.",
+        "category": "account",
+        "difficulty": "medium",
+        "test_type": "ai_generated"
+      },
+      "response": {
+        "generated_answer": "Error"
+      },
+      "metrics": {
+        "semantic_similarity": 0.0,
+        "response_time_seconds": 2.668227,
+        "retrieval_correct": false
+      },
+      "status": "success"
+    },
+    {
+      "test_case": {
+        "question": "I'm locked out! How can I reset my password quickly?",
+        "expected_answer": "Just click on 'Forgot Password' when you're on the login page, and you'll be guided through the recovery.",
+        "category": "account",
+        "difficulty": "medium",
+        "test_type": "ai_generated"
+      },
+      "response": {
+        "generated_answer": "Error"
+      },
+      "metrics": {
+        "semantic_similarity": 0.0,
+        "response_time_seconds": 2.89824,
+        "retrieval_correct": false
+      },
+      "status": "success"
+    },
+    {
+      "test_case": {
+        "question": "What should I do if I can't remember my password?",
+        "expected_answer": "Just hit the 'Forgot Password' link when you try to log in.",
+        "category": "account",
+        "difficulty": "hard",
+        "test_type": "ai_generated"
+      },
+      "response": {
+        "generated_answer": "Error"
+      },
+      "metrics": {
+        "semantic_similarity": 0.1,
+        "response_time_seconds": 3.657542,
+        "retrieval_correct": false
+      },
+      "status": "success"
+    },
+    {
+      "test_case": {
+        "question": "How can I retrieve my password if I've forgotten it?",
+        "expected_answer": "You can use the 'Forgot Password' option available on the login screen.",
+        "category": "account",
+        "difficulty": "hard",
+        "test_type": "ai_generated"
+      },
+      "response": {
+        "generated_answer": "Error"
+      },
+      "metrics": {
+        "semantic_similarity": 0.2,
+        "response_time_seconds": 3.25979,
+        "retrieval_correct": false
+      },
+      "status": "success"
+    },
+    {
+      "test_case": {
+        "question": "I'm locked out of my account; how do I get back in?",
+        "expected_answer": "No sweat! Just click on 'Forgot Password' and follow the prompts.",
+        "category": "account",
+        "difficulty": "hard",
+        "test_type": "ai_generated"
+      },
+      "response": {
+        "generated_answer": "Error"
+      },
+      "metrics": {
+        "semantic_similarity": 0.0,
+        "response_time_seconds": 3.119789,
+        "retrieval_correct": false
+      },
+      "status": "success"
+    },
+    {
+      "test_case": {
+        "question": "My password's gone; what\u2019s the quick fix?",
+        "expected_answer": "Easy peasy! Just tap 'Forgot Password' and you\u2019ll be good to go.",
+        "category": "account",
+        "difficulty": "hard",
+        "test_type": "ai_generated"
+      },
+      "response": {
+        "generated_answer": "Error"
+      },
+      "metrics": {
+        "semantic_similarity": 0.0,
+        "response_time_seconds": 3.427931,
+        "retrieval_correct": false
+      },
+      "status": "success"
+    },
+    {
+      "test_case": {
+        "question": "What\u2019s the move if I can\u2019t log in 'cause I forgot my password?",
+        "expected_answer": "Just scroll down and hit that 'Forgot Password' button, and you\u2019ll get a reset link.",
+        "category": "account",
+        "difficulty": "hard",
+        "test_type": "ai_generated"
+      },
+      "response": {
+        "generated_answer": "Error"
+      },
+      "metrics": {
+        "semantic_similarity": 0.1,
+        "response_time_seconds": 2.713484,
+        "retrieval_correct": false
+      },
+      "status": "success"
+    },
+    {
+      "test_case": {
+        "question": "I can't seem to remember my password, how do I sort that out?",
+        "expected_answer": "Just do the 'Forgot Password' thing on the login page, and you'll sort it out in no time!",
+        "category": "account",
+        "difficulty": "hard",
+        "test_type": "ai_generated"
+      },
+      "response": {
+        "generated_answer": "Error"
+      },
+      "metrics": {
+        "semantic_similarity": 0.0,
+        "response_time_seconds": 3.167268,
+        "retrieval_correct": false
+      },
+      "status": "success"
+    },
+    {
+      "test_case": {
+        "question": "Can you tell me where your office is?",
+        "expected_answer": "Our office is located at 123 Tech Street, Jakarta.",
+        "category": "location",
+        "difficulty": "easy",
+        "test_type": "ai_generated"
+      },
+      "response": {
+        "generated_answer": "Error"
+      },
+      "metrics": {
+        "semantic_similarity": 0.0,
+        "response_time_seconds": 3.140052,
+        "retrieval_correct": false
+      },
+      "status": "success"
+    },
+    {
+      "test_case": {
+        "question": "What is the address of your office?",
+        "expected_answer": "We are situated at 123 Tech Street, Jakarta.",
+        "category": "location",
+        "difficulty": "easy",
+        "test_type": "ai_generated"
+      },
+      "response": {
+        "generated_answer": "Error"
+      },
+      "metrics": {
+        "semantic_similarity": 0.0,
+        "response_time_seconds": 2.855026,
+        "retrieval_correct": false
+      },
+      "status": "success"
+    },
+    {
+      "test_case": {
+        "question": "Where do you work from?",
+        "expected_answer": "The office is at 123 Tech Street, Jakarta.",
+        "category": "location",
+        "difficulty": "easy",
+        "test_type": "ai_generated"
+      },
+      "response": {
+        "generated_answer": "Error"
+      },
+      "metrics": {
+        "semantic_similarity": 0.0,
+        "response_time_seconds": 2.754979,
+        "retrieval_correct": false
+      },
+      "status": "success"
+    },
+    {
+      "test_case": {
+        "question": "I need to find your office. Where is it?",
+        "expected_answer": "You can find us at 123 Tech Street, Jakarta.",
+        "category": "location",
+        "difficulty": "easy",
+        "test_type": "ai_generated"
+      },
+      "response": {
+        "generated_answer": "Error"
+      },
+      "metrics": {
+        "semantic_similarity": 0.0,
+        "response_time_seconds": 2.98966,
+        "retrieval_correct": false
+      },
+      "status": "success"
+    },
+    {
+      "test_case": {
+        "question": "What\u2019s the location of your workplace?",
+        "expected_answer": "Our workplace can be found at 123 Tech Street, Jakarta.",
+        "category": "location",
+        "difficulty": "easy",
+        "test_type": "ai_generated"
+      },
+      "response": {
+        "generated_answer": "Error"
+      },
+      "metrics": {
+        "semantic_similarity": 0.0,
+        "response_time_seconds": 2.790363,
+        "retrieval_correct": false
+      },
+      "status": "success"
+    },
+    {
+      "test_case": {
+        "question": "Where\u2019s your team based?",
+        "expected_answer": "Our team is based at 123 Tech Street, Jakarta.",
+        "category": "location",
+        "difficulty": "easy",
+        "test_type": "ai_generated"
+      },
+      "response": {
+        "generated_answer": "Error"
+      },
+      "metrics": {
+        "semantic_similarity": 0.0,
+        "response_time_seconds": 2.921302,
+        "retrieval_correct": false
+      },
+      "status": "success"
+    },
+    {
+      "test_case": {
+        "question": "Yo, where\u2019s your office chillin'?",
+        "expected_answer": "Our office is chillin' at 123 Tech Street, Jakarta.",
+        "category": "location",
+        "difficulty": "easy",
+        "test_type": "ai_generated"
+      },
+      "response": {
+        "generated_answer": "Error"
+      },
+      "metrics": {
+        "semantic_similarity": 0.0,
+        "response_time_seconds": 2.857879,
+        "retrieval_correct": false
+      },
+      "status": "success"
+    },
+    {
+      "test_case": {
+        "question": "Di mana alamat kantor kamu?",
+        "expected_answer": "Kantor kami berlokasi di 123 Tech Street, Jakarta.",
+        "category": "location",
+        "difficulty": "medium",
+        "test_type": "ai_generated"
+      },
+      "response": {
+        "generated_answer": "Error"
+      },
+      "metrics": {
+        "semantic_similarity": 0.0,
+        "response_time_seconds": 2.867626,
+        "retrieval_correct": false
+      },
+      "status": "success"
+    },
+    {
+      "test_case": {
+        "question": "Bisa kasih tahu lokasi kantor?",
+        "expected_answer": "Kami berada di 123 Tech Street, Jakarta.",
+        "category": "location",
+        "difficulty": "medium",
+        "test_type": "ai_generated"
+      },
+      "response": {
+        "generated_answer": "Error"
+      },
+      "metrics": {
+        "semantic_similarity": 0.0,
+        "response_time_seconds": 2.924878,
+        "retrieval_correct": false
+      },
+      "status": "success"
+    },
+    {
+      "test_case": {
+        "question": "Kantornya ada di mana ya?",
+        "expected_answer": "Kantor kami terletak di 123 Tech Street, Jakarta.",
+        "category": "location",
+        "difficulty": "medium",
+        "test_type": "ai_generated"
+      },
+      "response": {
+        "generated_answer": "Error"
+      },
+      "metrics": {
+        "semantic_similarity": 0.0,
+        "response_time_seconds": 2.724534,
+        "retrieval_correct": false
+      },
+      "status": "success"
+    },
+    {
+      "test_case": {
+        "question": "Gue penasaran, kantor kalian di mana sih?",
+        "expected_answer": "Kami ada di 123 Tech Street, Jakarta.",
+        "category": "location",
+        "difficulty": "medium",
+        "test_type": "ai_generated"
+      },
+      "response": {
+        "generated_answer": "Error"
+      },
+      "metrics": {
+        "semantic_similarity": 0.0,
+        "response_time_seconds": 3.095644,
+        "retrieval_correct": false
+      },
+      "status": "success"
+    },
+    {
+      "test_case": {
+        "question": "Lo tau gak di mana kantor kalian?",
+        "expected_answer": "Kantor kami ada di 123 Tech Street, Jakarta.",
+        "category": "location",
+        "difficulty": "medium",
+        "test_type": "ai_generated"
+      },
+      "response": {
+        "generated_answer": "Error"
+      },
+      "metrics": {
+        "semantic_similarity": 0.0,
+        "response_time_seconds": 3.311856,
+        "retrieval_correct": false
+      },
+      "status": "success"
+    },
+    {
+      "test_case": {
+        "question": "Yuk, kasih tau lokasi kantor kalian!",
+        "expected_answer": "Kantornya ada di 123 Tech Street, Jakarta.",
+        "category": "location",
+        "difficulty": "medium",
+        "test_type": "ai_generated"
+      },
+      "response": {
+        "generated_answer": "Error"
+      },
+      "metrics": {
+        "semantic_similarity": 0.0,
+        "response_time_seconds": 3.750568,
+        "retrieval_correct": false
+      },
+      "status": "success"
+    },
+    {
+      "test_case": {
+        "question": "Kantor kalian ngapain aja sih, dan di mana letaknya?",
+        "expected_answer": "Kami beroperasi di 123 Tech Street, Jakarta.",
+        "category": "location",
+        "difficulty": "medium",
+        "test_type": "ai_generated"
+      },
+      "response": {
+        "generated_answer": "Error"
+      },
+      "metrics": {
+        "semantic_similarity": 0.0,
+        "response_time_seconds": 3.308184,
+        "retrieval_correct": false
+      },
+      "status": "success"
+    },
+    {
+      "test_case": {
+        "question": "Hey, where can I find your workspace?",
+        "expected_answer": "You can catch us at 123 Tech Street in Jakarta.",
+        "category": "location",
+        "difficulty": "hard",
+        "test_type": "ai_generated"
+      },
+      "response": {
+        "generated_answer": "Error"
+      },
+      "metrics": {
+        "semantic_similarity": 0.0,
+        "response_time_seconds": 3.739596,
+        "retrieval_correct": false
+      },
+      "status": "success"
+    },
+    {
+      "test_case": {
+        "question": "What\u2019s the address of your office, by the way?",
+        "expected_answer": "Our digs are at 123 Tech Street, Jakarta.",
+        "category": "location",
+        "difficulty": "hard",
+        "test_type": "ai_generated"
+      },
+      "response": {
+        "generated_answer": "Error"
+      },
+      "metrics": {
+        "semantic_similarity": 0.0,
+        "response_time_seconds": 3.972391,
+        "retrieval_correct": false
+      },
+      "status": "success"
+    },
+    {
+      "test_case": {
+        "question": "So, where's your spot at?",
+        "expected_answer": "We're chilling at 123 Tech Street, Jakarta.",
+        "category": "location",
+        "difficulty": "hard",
+        "test_type": "ai_generated"
+      },
+      "response": {
+        "generated_answer": "Error"
+      },
+      "metrics": {
+        "semantic_similarity": 0.0,
+        "response_time_seconds": 2.483829,
+        "retrieval_correct": false
+      },
+      "status": "success"
+    },
+    {
+      "test_case": {
+        "question": "If I wanted to swing by your place, where would I go?",
+        "expected_answer": "You'd wanna head to 123 Tech Street in Jakarta.",
+        "category": "location",
+        "difficulty": "hard",
+        "test_type": "ai_generated"
+      },
+      "response": {
+        "generated_answer": "Error"
+      },
+      "metrics": {
+        "semantic_similarity": 0.0,
+        "response_time_seconds": 2.530789,
+        "retrieval_correct": false
+      },
+      "status": "success"
+    },
+    {
+      "test_case": {
+        "question": "Can you drop me the location of your office?",
+        "expected_answer": "Sure thing! It's at 123 Tech Street, Jakarta.",
+        "category": "location",
+        "difficulty": "hard",
+        "test_type": "ai_generated"
+      },
+      "response": {
+        "generated_answer": "Error"
+      },
+      "metrics": {
+        "semantic_similarity": 0.0,
+        "response_time_seconds": 2.577399,
+        "retrieval_correct": false
+      },
+      "status": "success"
+    },
+    {
+      "test_case": {
+        "question": "Yo, where do you guys operate from?",
+        "expected_answer": "We're based at 123 Tech Street, Jakarta.",
+        "category": "location",
+        "difficulty": "hard",
+        "test_type": "ai_generated"
+      },
+      "response": {
+        "generated_answer": "Error"
+      },
+      "metrics": {
+        "semantic_similarity": 0.0,
+        "response_time_seconds": 2.961051,
+        "retrieval_correct": false
+      },
+      "status": "success"
+    }
+  ]
+}
