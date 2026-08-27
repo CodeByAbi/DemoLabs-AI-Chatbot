@@ -1,0 +1,51 @@
+image: atlassian/default-image:4
+
+definitions:
+  services:
+    docker:
+      memory: 3072
+
+options:
+  docker: true
+
+pipelines:
+  branches:
+    features:
+      - step:
+          name: Build Base Image
+          size: 2x
+          script:
+            - export APP_IMAGE="$ACR_URL/lab/orchestrator:base"
+            - docker login $ACR_URL -u $ACR_USER -p $ACR_PASS
+            - docker build -t $APP_IMAGE -f Dockerfile.base .
+            - docker push $APP_IMAGE
+            - docker logout $ACR_URL
+          condition:
+            changesets:
+              includePaths:
+                - "Dockerfile.base"
+                - "requirements.txt"
+      - step:
+          name: Build Main Image
+          script:
+            - export TAG=$(echo $BITBUCKET_COMMIT | cut -c1-7)
+            - export APP_IMAGE="$ACR_URL/lab/orchestrator:$TAG"
+            - docker login $ACR_URL -u $ACR_USER -p $ACR_PASS
+            - docker build -t $APP_IMAGE -f Dockerfile .
+            - docker push $APP_IMAGE
+            - docker logout $ACR_URL
+
+      - step:
+          name: Release
+          script:
+            - apt-get update && apt-get install -y git
+            - git clone --depth=1 https://ilhamellya:$PAT_TOKEN@bitbucket.org/nawa_tech/demo-lab-manifest.git
+            - cd demo-lab-manifest
+            - git config user.email ilham.ellya@nawatech.co
+            - git pull origin main
+            - export TAG=$(echo $BITBUCKET_COMMIT | cut -c1-7)
+            - export APP_IMAGE="$ACR_URL/lab/orchestrator:$TAG"
+            - 'sed -i "s|image: .*|image: ${APP_IMAGE}|" backend/orchestrator/deployment.yml'
+            - git add backend/orchestrator/deployment.yml
+            - 'git commit -m "orchestrator: release $TAG"'
+            - git push
