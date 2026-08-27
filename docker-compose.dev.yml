@@ -1,0 +1,275 @@
+# Demo Lab Chatbot Orchestrator - Full Local Development
+# All services run in Docker with local Redis and RabbitMQ
+# Use this for complete local development
+
+services:
+  # Local Redis
+  redis:
+    image: redis:7-alpine
+    container_name: demo-lab-redis
+    ports:
+      - "6379:6379"
+    command: redis-server --appendonly yes
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+    networks:
+      - demo-lab-network
+
+  # Local RabbitMQ
+  rabbitmq:
+    image: rabbitmq:3.12-management
+    container_name: demo-lab-rabbitmq
+    ports:
+      - "5672:5672"   # AMQP
+      - "15672:15672" # Management UI
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - demo-lab-network
+
+  # FastAPI Application
+  fastapi:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    container_name: demo-lab-api
+    ports:
+      - "${PORT:-8000}:8000"
+    environment:
+      # Override to use container names instead of localhost
+      REDIS_ENDPOINT: redis
+      REDIS_PORT: 6379
+      REDIS_PASSWORD: ""
+      REDIS_URL: redis://redis:6379/0
+      RABBITMQ_AMQP_HOST: rabbitmq
+      RABBITMQ_AMQP_PORT: 5672
+      RABBITMQ_URL: amqp://guest:guest@rabbitmq:5672//
+      CELERY_BROKER_URL: amqp://guest:guest@rabbitmq:5672//
+      CELERY_RESULT_BACKEND: redis://redis:6379/0
+    env_file:
+      - .env
+    restart: unless-stopped
+    volumes:
+      - ./app:/app/app
+    depends_on:
+      redis:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    networks:
+      - demo-lab-network
+
+  # Celery Worker - Chat Processing
+  celery_worker_chat:
+    build:
+      context: .
+      dockerfile: Dockerfile.worker
+    container_name: demo-lab-worker-chat
+    environment:
+      # Override to use container names
+      REDIS_ENDPOINT: redis
+      REDIS_PORT: 6379
+      REDIS_PASSWORD: ""
+      REDIS_URL: redis://redis:6379/0
+      RABBITMQ_AMQP_HOST: rabbitmq
+      RABBITMQ_AMQP_PORT: 5672
+      RABBITMQ_URL: amqp://guest:guest@rabbitmq:5672//
+      CELERY_BROKER_URL: amqp://guest:guest@rabbitmq:5672//
+      CELERY_RESULT_BACKEND: redis://redis:6379/0
+    env_file:
+      - .env
+    restart: unless-stopped
+    volumes:
+      - ./app:/app/app
+    command: >
+      celery -A app.workers.celery_app worker
+      --loglevel=info
+      --queues=chat_incoming
+      --concurrency=4
+      --max-tasks-per-child=1000
+      -n chat_worker@%h
+    depends_on:
+      redis:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "celery", "-A", "app.workers.celery_app", "inspect", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    networks:
+      - demo-lab-network
+
+  # Celery Worker - Embedding Processing
+  celery_worker_embedding:
+    build:
+      context: .
+      dockerfile: Dockerfile.worker
+    container_name: demo-lab-worker-embedding
+    environment:
+      # Override to use container names
+      REDIS_ENDPOINT: redis
+      REDIS_PORT: 6379
+      REDIS_PASSWORD: ""
+      REDIS_URL: redis://redis:6379/0
+      RABBITMQ_AMQP_HOST: rabbitmq
+      RABBITMQ_AMQP_PORT: 5672
+      RABBITMQ_URL: amqp://guest:guest@rabbitmq:5672//
+      CELERY_BROKER_URL: amqp://guest:guest@rabbitmq:5672//
+      CELERY_RESULT_BACKEND: redis://redis:6379/0
+    env_file:
+      - .env
+    restart: unless-stopped
+    volumes:
+      - ./app:/app/app
+    command: >
+      celery -A app.workers.celery_app worker
+      --loglevel=info
+      --queues=embedding.qna
+      --concurrency=2
+      --max-tasks-per-child=100
+      -n embedding_worker@%h
+    depends_on:
+      redis:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "celery", "-A", "app.workers.celery_app", "inspect", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    networks:
+      - demo-lab-network
+
+  # Celery Worker - PDF Embedding
+  celery_worker_pdf:
+    build:
+      context: .
+      dockerfile: Dockerfile.worker
+    container_name: demo-lab-worker-pdf
+    environment:
+      # Override to use container names
+      REDIS_ENDPOINT: redis
+      REDIS_PORT: 6379
+      REDIS_PASSWORD: ""
+      REDIS_URL: redis://redis:6379/0
+      RABBITMQ_AMQP_HOST: rabbitmq
+      RABBITMQ_AMQP_PORT: 5672
+      RABBITMQ_URL: amqp://guest:guest@rabbitmq:5672//
+      CELERY_BROKER_URL: amqp://guest:guest@rabbitmq:5672//
+      CELERY_RESULT_BACKEND: redis://redis:6379/0
+    env_file:
+      - .env
+    restart: unless-stopped
+    volumes:
+      - ./app:/app/app
+    command: >
+      celery -A app.workers.celery_app worker
+      --loglevel=info
+      --queues=embedding.pdf
+      --concurrency=2
+      --max-tasks-per-child=50
+      -n pdf_worker@%h
+    depends_on:
+      redis:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "celery", "-A", "workers.celery_app", "inspect", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    networks:
+      - demo-lab-network
+
+  # Celery Worker - Text-to-SQL
+  celery_worker_sql:
+    build:
+      context: .
+      dockerfile: Dockerfile.worker
+    container_name: demo-lab-worker-sql
+    environment:
+      # Override to use container names
+      REDIS_ENDPOINT: redis
+      REDIS_PORT: 6379
+      REDIS_PASSWORD: ""
+      REDIS_URL: redis://redis:6379/0
+      RABBITMQ_AMQP_HOST: rabbitmq
+      RABBITMQ_AMQP_PORT: 5672
+      RABBITMQ_URL: amqp://guest:guest@rabbitmq:5672//
+      CELERY_BROKER_URL: amqp://guest:guest@rabbitmq:5672//
+      CELERY_RESULT_BACKEND: redis://redis:6379/0
+    env_file:
+      - .env
+    restart: unless-stopped
+    volumes:
+      - ./app:/app/app
+    command: >
+      celery -A app.workers.celery_app worker
+      --loglevel=info
+      --queues=embedding.text_to_sql
+      --concurrency=2
+      --max-tasks-per-child=100
+      -n sql_worker@%h
+    depends_on:
+      redis:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "celery", "-A", "app.workers.celery_app", "inspect", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    networks:
+      - demo-lab-network
+
+  # Flower - Celery Monitoring
+  flower:
+    image: mher/flower:2.0
+    container_name: demo-lab-flower
+    environment:
+      CELERY_BROKER_URL: amqp://guest:guest@rabbitmq:5672//
+      CELERY_RESULT_BACKEND: redis://redis:6379/0
+      FLOWER_PORT: 5555
+    ports:
+      - "5555:5555"
+    restart: unless-stopped
+    depends_on:
+      redis:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+    networks:
+      - demo-lab-network
+
+volumes:
+  redis_data:
+    driver: local
+  rabbitmq_data:
+    driver: local
+
+networks:
+  demo-lab-network:
+    driver: bridge

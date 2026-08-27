@@ -1,0 +1,134 @@
+# Demo Lab Chatbot Orchestrator - Production Deployment
+# Connected to Azure Cloud Services:
+# - RabbitMQ: 70.153.112.102
+# - Redis Cache: dev9nest.redis.cache.windows.net
+# - PostgreSQL: demo-chatbot-dev.postgres.database.azure.com
+# - Elasticsearch: nawa9nestelastic.southeastasia.cloudapp.azure.com
+# - Azure Blob Storage: hugenest/demo-lab
+
+services:
+  # Celery Worker - Chat Processing (connects to Azure services)
+  celery_worker_chat:
+    build:
+      context: .
+      dockerfile: Dockerfile.worker
+    env_file:
+      - .env
+    restart: unless-stopped
+    volumes:
+      - ./app:/app/app
+    command: >
+      celery -A app.workers.celery_app worker
+      --loglevel=info
+      --queues=chat_incoming
+      --concurrency=4
+      --max-tasks-per-child=1000
+      -n chat_worker@%h
+    healthcheck:
+      test: ["CMD", "celery", "-A", "app.workers.celery_app", "inspect", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Celery Worker - Embedding Processing (connects to Azure services)
+  celery_worker_embedding:
+    build:
+      context: .
+      dockerfile: Dockerfile.worker
+    env_file:
+      - .env
+    restart: unless-stopped
+    volumes:
+      - ./app:/app/app
+    command: >
+      celery -A app.workers.celery_app worker
+      --loglevel=info
+      --queues=embedding.qna
+      --concurrency=2
+      --max-tasks-per-child=100
+      -n embedding_worker@%h
+    healthcheck:
+      test: ["CMD", "celery", "-A", "app.workers.celery_app", "inspect", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Celery Worker - PDF Embedding Processing (connects to Azure services)
+  celery_worker_pdf_embedding:
+    build:
+      context: .
+      dockerfile: Dockerfile.worker
+    env_file:
+      - .env
+    restart: unless-stopped
+    volumes:
+      - ./app:/app/app
+    command: >
+      celery -A app.workers.celery_app worker
+      --loglevel=info
+      --queues=embedding.pdf
+      --concurrency=2
+      --max-tasks-per-child=50
+      -n pdf_embedding_worker@%h
+    healthcheck:
+      test: ["CMD", "celery", "-A", "app.workers.celery_app", "inspect", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Celery Worker - Text-to-SQL Embedding Processing (connects to Azure services)
+  celery_worker_text_to_sql_embedding:
+    build:
+      context: .
+      dockerfile: Dockerfile.worker
+    env_file:
+      - .env
+    restart: unless-stopped
+    volumes:
+      - ./app:/app/app
+    command: >
+      celery -A app.workers.celery_app worker
+      --loglevel=info
+      --queues=embedding.text_to_sql
+      --concurrency=2
+      --max-tasks-per-child=100
+      -n text_to_sql_embedding_worker@%h
+    healthcheck:
+      test: ["CMD", "celery", "-A", "app.workers.celery_app", "inspect", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # FastAPI Application - connects to Azure services
+  fastapi:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    ports:
+      - "${PORT:-8000}:8000"
+    env_file:
+      - .env
+    restart: unless-stopped
+    volumes:
+      - ./app:/app/app
+    depends_on:
+      - celery_worker_chat
+      - celery_worker_embedding
+      - celery_worker_pdf_embedding
+      - celery_worker_text_to_sql_embedding
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Flower - Celery Monitoring (uses Azure RabbitMQ and Redis)
+  flower:
+    image: mher/flower:2.0
+    environment:
+      CELERY_BROKER_URL: ${CELERY_BROKER_URL}
+      CELERY_RESULT_BACKEND: ${CELERY_RESULT_BACKEND}
+      FLOWER_PORT: 5555
+    ports:
+      - "5555:5555"
+    restart: unless-stopped
